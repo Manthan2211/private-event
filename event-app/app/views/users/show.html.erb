@@ -19,7 +19,7 @@
     <% if current_user.previous_events.any? %>
       <h3> Past Attended Events </h3>
       <%  current_user.previous_events.each do |past_event| %>
-          <% render past_event %>
+          <%= render past_event %>
       <% end %> 
     <% end %>
   </div>

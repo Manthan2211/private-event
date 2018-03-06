@@ -1,0 +1,21 @@
+<li id="event-<%= event.id %>">
+  <span class="user">
+    <h3>Event by:<%= link_to event.creator.name, event.creator %></h3>
+  </span>
+  <span class="content"><h3>Title:<%= event.title %></h3><br>
+    <h3>Description:<%= event.description %></h3><br>
+    <h3> Location:<%= event.location %></h3><br>
+    <h3> Date:<%= event.date.in_time_zone("Chennai").strftime("%d/%m/%Y %R ") %>
+    </h3><br>
+  </span> 
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(event.created_at) %> ago.
+      <% if current_user?(event.creator) %>
+          <% if event.date > Time.now %>
+            <%= link_to "delete", event, method: :delete,
+                                       data: { confirm: "You sure?" } %>
+          <% else %>
+          <%end%>
+      <% end %>
+  </span>
+</li>

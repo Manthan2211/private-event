@@ -1,0 +1,10 @@
+ 
+ <%= render @event %>
+ <% if @event.attendees.any? %>
+ 	<% @event.attendees.each do |attendee| %>
+	 <h3> Attendee List:<li><%= attendee.name %></li></h3>
+	<% end %>
+
+<%else%>
+  <li>no event attendees</li>
+<%end%>
