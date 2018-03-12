@@ -1,6 +1,6 @@
 <h1>Past Events</h1>
-<% unless Event.past.empty? %>
-  <% Event.past.each do |event| %>
+<% unless @prev_events.empty? %>
+  <% @prev_events.each do |event| %>
     <li>
       <%= link_to "#{event.title}", event %>
     </li>
@@ -12,11 +12,11 @@
 <% end %>
 
 <h1>Upcoming Events</h1>
-<% unless Event.upcoming.empty? %>
-  <% Event.upcoming.each do |event| %>
+<% unless @upcoming_events.empty? %>
+  <% @upcoming_events.each do |event| %>
     <li >
       <%= link_to "#{event.title}", event %>
-      <%= render 'attend_form' if logged_in? %>
+      <%= render 'attendance_form', :event => event %>
     </li>
   <% end %>
   <% else %>

@@ -14,6 +14,7 @@
           <% if event.date > Time.now %>
             <%= link_to "delete", event, method: :delete,
                                        data: { confirm: "You sure?" } %>
+            <%= link_to "edit", edit_event_path(event) %>
           <% else %>
           <% end %>
       <% end %>

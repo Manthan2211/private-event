@@ -25,4 +25,12 @@ class User < ApplicationRecord
   def previous_events
     attended_events.where('date < ? ', Time.now )
   end
+
+  def attend(event)
+    invitations.create(attended_event_id: event.id)
+  end
+
+  def unattend(event)
+    attended_events.delete(event)
+  end
 end

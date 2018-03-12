@@ -1,6 +1,3 @@
-<<<<<<< 1fe4d5d883243a7ee37d41cd47654ffe57055257
-# private-event
-=======
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -25,4 +22,3 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
->>>>>>> after indentation

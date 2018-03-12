@@ -2,7 +2,8 @@ class EventsController < ApplicationController
   before_action :correct_user, only: :destroy
 
   def index
-    @events = Event.paginate(page: params[:page], per_page: 1)
+    @prev_events = Event.past
+    @upcoming_events = Event.upcoming
   end
 
   def show
@@ -20,9 +21,27 @@ class EventsController < ApplicationController
     end
   end
 
+  def update
+    @event = Event.find(params[:id])
+    if @event.update_attributes(event_params)
+      flash[:success] = "Congratulations Event updated"
+      redirect_to @event
+    else
+      render 'edit'
+    end
+  end
+
+  def edit
+    if @event = Event.find_by(id: params[:id])
+    else
+      flash[:danger] = "Event not found"
+      redirect_to root_url
+    end
+  end
+
   def destroy
     @event.destroy
-    flash[:success] = "Micropost deleted"
+    flash[:success] = "Event deleted"
     redirect_to request.referrer || root_url
   end
 

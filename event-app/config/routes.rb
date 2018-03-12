@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   resources :events
   resources :users
+  resources :invitations,only: [:create, :destroy]
     
   get    '/signup',to: 'users#new'
   post   '/signup',to: 'users#create'

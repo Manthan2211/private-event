@@ -1,0 +1,5 @@
+
+  <%= form_for(event.invitations.build,remote: true) do |f| %>
+    <div><%= hidden_field_tag :attended_event_id, event.id %></div>
+    <%= f.submit "Attend", class: "btn btn-primary" %>
+  <% end %>
